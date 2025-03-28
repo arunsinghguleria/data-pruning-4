@@ -1,0 +1,11 @@
+Pruning ratio,EL2N,Random
+0% pruning,93.29,93.26
+10% pruning,93.19,92.82
+20% pruning,93.39,92.31
+30% pruning,93.20,91.89
+40% pruning,92.61,91.41
+50% pruning,92.54,89.92
+60% pruning,89.83,88.30
+70% pruning,72.76,87.12
+80% pruning,45.03,84.04
+90% pruning,22.17,74.74

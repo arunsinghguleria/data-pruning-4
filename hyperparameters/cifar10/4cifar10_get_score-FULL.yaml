@@ -1,0 +1,48 @@
+cifar10:
+  train:
+    stage: 'train'
+    name: 'CIFAR10-LT'
+    num_class: 10
+    path: '/data/home1/arunsg/gitproject/data-pruning-2/dataset/cifar/cifar10_train_metadata.csv'
+    image_path: "/data/home1/arunsg/gitproject/data-pruning-2/dataset/cifar/cifar10_train_with_ids/"
+    path_modified: "/data/home1/arunsg/gitproject/data-pruning/cifar10_metadata_modified.csv"
+    image_path_modified: '/data/home1/arunsg/gitproject/data-pruning/cifar10_with_ids_modified/'
+
+    cifar_sample: [5000, 5000, 5000,5000, 5000, 5000,5000, 5000, 5000, 5000] # no of sample to keep to make it LT dataset
+    prune_sample : False # if True then provide prune_file 
+    prune_file: # none by default otherwise give filename from which based on the score samples will be pruned
+    cifar_prune_ratio: #[0.4, 0.4, 0.4, 0.3, 0.3, 0.3, 0.3, 0.3, 0, 0]
+    use_augmented_data: True # True or False if you want to use augment data set it to True,first pruning will happen (if doing) then on remaining samples augmentation will be done
+    
+
+  test:
+    stage: 'test'
+    name: 'CIFAR10-LT'
+    num_class: 10
+    path: '/data/home1/arunsg/gitproject/data-pruning-2/dataset/cifar/cifar10_test_metadata.csv'
+    image_path: "/data/home1/arunsg/gitproject/data-pruning-2/dataset/cifar/cifar10_test_with_ids/"
+    path_modified: 
+    image_path_modified: 
+
+    cifar_sample: 
+    prune_file: 
+    cifar_prune_ratio: 
+    use_augmented_data: 
+
+random_seed: 424242
+num_epochs: 100
+batch_size: 256
+class_count: 10
+get_scores: True # set True if you want to calculate Grand and EL2N score and IF SET TRUE ONLY SCORES WILL BE CALCULATED, RESULTS FILE WON'T BE GENERATED
+path_to_save_score: '/data/home1/arunsg/gitproject/data-pruning-4/Scores/CIFAR10-FULL2/' # will be required when get_scores is set to True
+
+
+use_class_balanced_loss: False # set True if you want to use Class Balanced loss
+beta: 0.99 # will be used if use_class_balanced_loss is True
+
+use_weighted_loss: False # set True if you want to use weighted loss
+
+use_sampler: False # set True if you want to use weighted sampling
+
+results_folder: '/data/home1/arunsg/gitproject/data-pruning-4/results/CIFAR10-FULL2/'
+exp_name: 'cifar-full-el2n3-'
